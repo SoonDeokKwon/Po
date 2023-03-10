@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.mapper.BookMapper">
+
+<select id="bookList" resultType="co.yedam.vo.BookVO">
+	select * from book order by book_code
+</select>
+
+<insert id="insertBook" parameterType="co.yedam.vo.BookVO">
+	insert into book (book_code, book_title, book_author, book_press, book_desc, book_price)
+	values(#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookDesc}, #{bookPrice} )
+</insert>
+
+<select id="selectBook" resultType="co.yedam.vo.BookVO">
+	select * from book where book_code='#{bookCode}'
+</select>
+
+</mapper>
