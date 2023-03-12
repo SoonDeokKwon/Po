@@ -36,28 +36,28 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>${book.bookCode }</td>
-                            <td><input type="text" name="book_code" value="B20230301"></td>
+                            <td>도서코드</td>
+                            <td><input type="text" name="book_code" value="${book.bookCode }"></td>
                         </tr>
                         <tr>
-                            <td>${book.bookAuthor }</td>
-                            <td><input type="text" name="book_code" value="홍길동"></td>
+                            <td>저자</td>
+                            <td><input type="text" name="book_code" value="${book.bookAuthor }"></td>
                         </tr>
                         <tr>
-                            <td>${book.bookTitle }</td>
-                            <td><input type="text" name="book_code" value="우리의 정의란?"></td>
+                            <td>도서명</td>
+                            <td><input type="text" name="book_code" value="${book.bookTitle }"></td>
                         </tr>
                         <tr>
-                            <td>${book.bookPress }</td>
-                            <td><input type="text" name="book_code" value="정의출판사"></td>
+                            <td>출판사</td>
+                            <td><input type="text" name="book_code" value="${book.bookPress }"></td>
                         </tr>
                         <tr>
-                            <td>${book.bookDesc }</td>
-                            <td><textarea cols="30" rows="5" name="book_code">정의란 무엇인가...</textarea></td>
+                            <td>도서평</td>
+                            <td><textarea cols="30" rows="5" name="book_code">${book.bookDesc }</textarea></td>
                         </tr>
                         <tr>
-                            <td>${book.bookPrice }</td>
-                            <td><input type="text" name="book_code" value="25,000원"></td>
+                            <td>판매가</td>
+                            <td><input type="text" name="book_code" value="${book.bookPrice }원"></td>
                         </tr>
                         <tr>
                             <td align="center" colspan="2">

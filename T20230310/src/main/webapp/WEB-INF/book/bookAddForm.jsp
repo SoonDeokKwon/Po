@@ -38,11 +38,11 @@
                     <tbody>
                         <tr>
                             <td>도서코드</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="code"></td>
                         </tr>
                         <tr>
                             <td>저자</td>
-                            <td><input type="text" name="code"></td>
+                            <td><input type="text" name="author"></td>
                         </tr>
                         <tr>
                             <td>도서명</td>

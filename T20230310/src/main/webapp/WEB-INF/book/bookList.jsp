@@ -53,7 +53,7 @@
                             <td>${books.bookAuthor }</td>
                             <td>${books.bookTitle }</td>
                             <td>${books.bookPress }</td>
-                            <td>${books.bookPrice }</td>
+                            <td>${books.bookPrice }원</td>
                         </tr>
                     		
                     	</c:forEach>

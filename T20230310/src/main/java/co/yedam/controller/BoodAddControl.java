@@ -28,7 +28,7 @@ public class BoodAddControl implements Command {
 			price = Integer.parseInt(request.getParameter("price"));
 			
 		}
-		
+			
 		
 		BookVO vo = new BookVO();
 		vo.setBookCode(code);
@@ -38,12 +38,16 @@ public class BoodAddControl implements Command {
 		vo.setBookDesc(desc);
 		vo.setBookPrice(price);
 		
+		System.out.println("입력:" + vo);
+		
 		BookService service = new BookServiceMybatis(); 
 		boolean result = service.addBook(vo);
+		System.out.println(result);
+		if(result) {
+			request.getRequestDispatcher("/WEB-INF/book/bookList.jsp").forward(request, response);
+			
+		}
 		
-		System.out.println(vo);
-		
-		request.getRequestDispatcher("/WEB-INF/book/bookList.jsp").forward(request, response);
 	
 		
 		

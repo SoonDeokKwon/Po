@@ -10,12 +10,12 @@
 </select>
 
 <insert id="insertBook" parameterType="co.yedam.vo.BookVO">
-	insert into book (book_code, book_title, book_author, book_press, book_desc, book_price)
-	values(#{bookCode}, #{bookTitle}, #{bookAuthor}, #{bookPress}, #{bookDesc}, #{bookPrice} )
+	insert into book (book_code, book_author, book_title, book_press, book_desc, book_price)
+	values(#{bookCode}, #{bookAuthor}, #{bookTitle}, #{bookPress}, #{bookDesc}, #{bookPrice})	
 </insert>
 
-<select id="selectBook" resultType="co.yedam.vo.BookVO">
-	select * from book where book_code='#{bookCode}'
+<select id="selectBook" parameterType="co.yedam.vo.BookVO">
+	select * from book where book_code= #{bookCode}
 </select>
 
 </mapper>

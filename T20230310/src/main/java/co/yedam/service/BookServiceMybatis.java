@@ -20,8 +20,9 @@ public class BookServiceMybatis implements BookService {
 
 	@Override
 	public boolean addBook(BookVO vo) { //등록.
+		System.out.println(vo);
 		int r = mapper.insertBook(vo);
-		return r ==1;
+		return r == 1;
 	}
 
 	@Override
