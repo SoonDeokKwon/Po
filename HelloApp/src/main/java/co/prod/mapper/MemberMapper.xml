@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="co.prod.mapper.MemberMapper">
+
+  <select id="getMembers" resultType="co.prod.vo.MemberVO">
+    select * from members order by id desc
+  </select>
+  
+  <select id="login" parameterType="co.prod.vo.MemberVO" resultType="co.prod.vo.MemberVO">
+  	select * from members where id=#{id} and passwd = #{passwd}
+  </select>
+  
+  <delete id="deleteMember" parameterType="string">
+  	delete from members where id = #{id}
+  </delete>
+  
+  <insert id="insertMember" parameterType="co.prod.vo.MemberVO">
+  	insert into members (id, name, passwd, mail, auth)
+  	values(#{id}, #{name}, #{passwd}, #{mail}, #{auth})
+  </insert>
+  
+</mapper>

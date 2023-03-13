@@ -44,7 +44,7 @@ public class BoodAddControl implements Command {
 		boolean result = service.addBook(vo);
 		System.out.println(result);
 		if(result) {
-			request.getRequestDispatcher("/WEB-INF/book/bookList.jsp").forward(request, response);
+			request.getRequestDispatcher("/bookList.do").forward(request, response);
 			
 		}
 		
