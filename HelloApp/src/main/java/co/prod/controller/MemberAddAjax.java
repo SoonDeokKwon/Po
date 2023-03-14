@@ -35,7 +35,7 @@ public class MemberAddAjax implements Control {
 		vo.setAuth(request.getParameter("auth"));
 		
 		MemberService service = new MemberServiceMybatis();
-		boolean result =  service.addMember(vo);
+		boolean result =  service.addMember(vo);  // 입력처리.
 		Map<String, Object> map = new HashMap<>();
 		
 		Gson gson = new GsonBuilder().create();
