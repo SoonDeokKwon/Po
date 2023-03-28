@@ -9,11 +9,27 @@
     select * from product
   </select>
 
- <select id="product" resultType="ProductVO">
+ <select id="productInfo" parameterType="String" resultType="ProductVO">
  	select * from product
-	where product_code=
+	where product_code= #{code}
  </select>
 
+<select id="replyList" parameterType="String" resultType="ReplyVO">
+	select * from product_reply
+	where product_code=#{code}
+</select>
+
+<delete id="deleteReply" parameterType="int">
+	delete from product_reply where reply_no = #{replyId}
+</delete>
+
+<insert id="insertReply" parameterType="ReplyVO">
+	<selectKey keyProperty="replyNo" resultType="int" order="BEFORE">
+		select reply_seq.nextval from dual
+	</selectKey>
+	insert into product_reply (reply_no, reply_writer, reply_content, product_code)
+	values (reply_seq.nextval, #{replyWriter}, #{replyContent}, #{productCode})
+</insert>
 
 </mapper>
 
