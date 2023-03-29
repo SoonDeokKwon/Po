@@ -1,6 +1,7 @@
 package co.prod.service;
 
 import java.util.List;
+import java.util.Map;
 
 import co.prod.vo.ProductVO;
 import co.prod.vo.ReplyVO;
@@ -19,5 +20,12 @@ public interface ProductService {
 	public boolean removeReply(int replyId);
 	// 댓글 등록
 	public boolean addReply(ReplyVO vo);
+	//
+	public ReplyVO getReply(int rid);
+	// 댓글 수정.
+	public boolean updateReply(ReplyVO vo);
+	
+	// chart. 부서별 인원 현황.
+	public List<Map<String, Object>> chartInfo();
 	
 }

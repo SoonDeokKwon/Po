@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.prod.controller.ChartAjax;
+import co.prod.controller.ChartControl;
 import co.prod.controller.MemberAddAjax;
 import co.prod.controller.MemberListAjax;
 import co.prod.controller.MemberListControl;
@@ -20,7 +22,9 @@ import co.prod.controller.ProductInfoControl;
 import co.prod.controller.ProductListControl;
 import co.prod.controller.ReplyAddAjax;
 import co.prod.controller.ReplyListAjax;
+import co.prod.controller.ReplyModifyAjax;
 import co.prod.controller.ReplyRemoveAjax;
+import co.prod.controller.ReplySearchAjax;
 
 public class FrontController extends HttpServlet{
 	
@@ -48,7 +52,16 @@ public class FrontController extends HttpServlet{
 		map.put("/replyRemoveAjax.do", new ReplyRemoveAjax());
 		// 상품 댓글 등록
 		map.put("/replyAddAjax.do", new ReplyAddAjax());
+		// 상품 댓글번호 조회.
+		map.put("/replySearchAjax.do", new ReplySearchAjax());
+		// 상품 댓글 수정.
+		map.put("/replyModifyAjax.do", new ReplyModifyAjax());
 		
+		// chart
+		map.put("/chart.do", new ChartControl());
+		
+		// chart. 데이터
+		map.put("/chartAjax.do", new ChartAjax());
 		
 	}
 	@Override

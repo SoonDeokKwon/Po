@@ -28,8 +28,29 @@
 		select reply_seq.nextval from dual
 	</selectKey>
 	insert into product_reply (reply_no, reply_writer, reply_content, product_code)
-	values (reply_seq.nextval, #{replyWriter}, #{replyContent}, #{productCode})
+	values (#{replyNo}, #{replyWriter}, #{replyContent}, #{productCode})
 </insert>
+
+<select id="selectReply" parameterType="int" resultType="ReplyVO">
+	select * from product_reply
+	where reply_no = #{replyNo}
+</select>
+
+<update id="modifyReply" parameterType="ReplyVO">
+	update product_reply
+	set reply_content= #{replyContent}
+	where reply_no= #{replyNo}
+</update>
+
+<select id="cahrtInfo" resultType="map">
+	select department_name as "departmentName", count(*) as "cnt" 
+	from employees e
+	join departments d
+	on e.department_id = d.department_id
+	group by department_name	
+</select>
+
+
 
 </mapper>
 
