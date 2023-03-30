@@ -29,10 +29,12 @@ public interface ProductService {
 	// chart. 부서별 인원 현황.
 	public List<Map<String, Object>> chartInfo();
 	
-	// calendar schedule
-	public List<CalendarVO> calendarInfo();
-	
-	//insert
+	// calendar 
+	public List<CalendarVO> calendarInfo();	
+	// insert schedule
 	public boolean insertSchedule(CalendarVO vo);	
+	// delete schedule
+	public boolean deleteSchedule(CalendarVO vo);
+	
 	
 }

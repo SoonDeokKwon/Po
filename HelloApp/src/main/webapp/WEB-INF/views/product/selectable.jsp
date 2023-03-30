@@ -24,8 +24,6 @@
    	}
     
     
-    
-	
 	  
 	var calendarEl = document.getElementById('calendar');
 
@@ -69,13 +67,20 @@
         if (confirm('해당 일정을 삭제하시겠습니까?')) {
           arg.event.remove()
         }
+        
         console.log(arg);
-//         fetch('')
-//         .then(resolve=> resolve.json())
-//         .then(result => {
-        	
-//         })
-//         .catch(reject => console.error(reject)))
+        
+         fetch('calendarDeleteAjax.do',{
+        	 method:'post',
+        	 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        	 body: 'title=' + arg.event.title + '&startStr='+ arg.event.startStr  + '&endStr='+ arg.event.endStr
+         })
+        .then(resolve=> resolve.json())
+         .then(result => {
+        	console.log(result);
+        })
+        .catch(reject => console.error(reject))
+    
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events

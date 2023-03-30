@@ -66,4 +66,9 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.insertSchedule(vo) == 1;
 	}
 	
+	@Override
+	public boolean deleteSchedule(CalendarVO vo) {
+		return mapper.deleteSchedule(vo)==1;
+	}
+	
 }

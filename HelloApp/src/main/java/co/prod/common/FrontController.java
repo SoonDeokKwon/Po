@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.CalendarAjax;
+import co.prod.controller.CalendarDeleteAjax;
 import co.prod.controller.CalendarForm;
 import co.prod.controller.CalendarInsertAjax;
 import co.prod.controller.ChartAjax;
@@ -73,11 +74,12 @@ public class FrontController extends HttpServlet{
 		map.put("/map.do", new MapForm());
 		// calendarAPI
 		map.put("/calendar.do", new CalendarForm());
-		// 
+		// calendarAPIAjax
 		map.put("/calendarAjax.do", new CalendarAjax());
-		
+		// schedule 입력
 		map.put("/calendarInsertAjax.do", new CalendarInsertAjax());
-		
+		// schedule 삭제
+		map.put("/calendarDeleteAjax.do", new CalendarDeleteAjax());
 		
 	}
 	@Override

@@ -30,8 +30,10 @@ public interface ProductMapper {
 	
 	// calendar schedule
 	public List<CalendarVO> calendarInfo();
-	//insert
+	// insert schedule
 	public int insertSchedule(CalendarVO vo);
+	// delete schedule
+	public int deleteSchedule(CalendarVO vo);
 	
 	
 }
