@@ -98,6 +98,7 @@
 		        .catch(reject => console.error(reject));
 		
 		    let showProps = ['replyNo', 'replyWriter', 'replyContent'];
+		   
 		    function makeRow(reply = {}) {// tr>td*4
 		        let tr = document.createElement('tr');
 		        tr.addEventListener('dblclick', modifyTr);

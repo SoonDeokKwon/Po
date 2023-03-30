@@ -3,6 +3,7 @@ package co.prod.service;
 import java.util.List;
 import java.util.Map;
 
+import co.prod.vo.CalendarVO;
 import co.prod.vo.ProductVO;
 import co.prod.vo.ReplyVO;
 
@@ -27,5 +28,11 @@ public interface ProductService {
 	
 	// chart. 부서별 인원 현황.
 	public List<Map<String, Object>> chartInfo();
+	
+	// calendar schedule
+	public List<CalendarVO> calendarInfo();
+	
+	//insert
+	public boolean insertSchedule(CalendarVO vo);	
 	
 }

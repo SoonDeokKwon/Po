@@ -50,6 +50,18 @@
 	group by department_name	
 </select>
 
+<select id="calendarInfo" resultType="CalendarVO">
+	select * from full_calendar
+</select>
+
+<insert id="insertSchedule" parameterType="CalendarVO">
+	insert into full_calendar values (#{title}, #{startDate}, #{endDate})
+</insert>
+
+<delete id="deleteSchedule" parameterType="CalendarVO">
+	delete from full_calendar
+	where title= #{title} and start_date= #{startDate} and end_date= #{endDate}
+</delete>
 
 
 </mapper>

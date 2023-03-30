@@ -7,38 +7,37 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-      
-      
-      
 
-      function drawChart() {
+      async function drawChart() {
     	 // [{'Admin':1},{'Accounting':2}....] -> error 발생. 배열로 바꿔줘야 함.
+		console.log("1")
 		
-    	 fetch('chartAjax.do')
-			  .then(resolve => resolve.json())
-			  .then(result => {
-				  let outAry =[];
-				  outAry.push(['dept', 'cnt per dept']);
-				  result.forEach(dept => {
-					  let ary =[];
-					  for (prop in dept) {
-						  ary[0] = prop;
-						  ary[1] = dept[prop];
-					  }
-					  outAry.push(ary);		// chartdraw에 맞게 데이터 가공.
-        
-				  })
-			        var data = google.visualization.arrayToDataTable(outAry);
-			        var options = {
-			        	title: 'Person by Department'
-			        };
-			        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		let outAry =[];
+    	outAry.push(['dept', 'cnt per dept'])
+    	 
+    	let promise1 = await fetch('chartAjax.do')	// promise 객체.
+    	let promise2 = await promise1.json();	// [{}, {},...]
+    	console.log("1-1");
+    	promise2.forEach(dept => {
+    		let ary =[];
+    		for (let prop in dept){
+    			ary[0] = prop;
+    			ary[1] = dept[prop];
+    		}
+    		outAry.push(ary);
+    	})
+    	
+		
+		var data = google.visualization.arrayToDataTable(outAry);
+		var options = {
+			  title: 'Person by Department'
+		 };
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));	
+		chart.draw(data, options);
 			
-			        chart.draw(data, options);
-				  console.log(outAry);
-			  })
-			  .catch(reject => console.error(reject))  
-    	  
+		 
+		console.log("2")
+    	 
       }
     </script>
   </head>
