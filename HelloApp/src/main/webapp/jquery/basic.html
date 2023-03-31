@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery/basic.html</title>
+     <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+     <script src="./jquery-3.6.4.min.js"></script>
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+     <script>
+
+        // this: 객체 안에서 사용 => 객체 자신. 
+        //       함수에서 사용 : 전역객체, 
+        //       이벤트: event.target(이벤트를 받는 대상)
+
+        // $() => jquery 객체: 메소드(함수) 기반
+        // 자바스크립트 : 객체(Document Object Model): document.children, document.querySelector()
+        // window 하위에 document
+        console.log(document);
+        console.log($(document));
+        $(document).ready(function() {
+
+        })
+
+        function callWindow() {
+            console.log(this);  // this: window 객체.
+        }
+        callWindow();
+
+        let obj  = {
+            name: "홍길동",
+            age: 20,
+            showAge: function() {
+                console.log("이름은 " + this.name + ", 나이는 " + this.age);
+            }
+        }
+        obj.showAge();
+
+        $(function() {      // (document).ready 생략됨.
+            console.log(this);  // this: window -> document
+            console.log(document.querySelectorAll('p:nth-of-type(2)'));
+            console.log($("p:eq(0)"));    //jquery 객체의 모습
+
+            $("p").on("click", function() {     // on: 이벤트를 실행할 때 쓰는 메소드.
+               $("p").css("color", "red");  // style {'font: bold, "color:red'}
+            });
+
+            // document.querySelectorAll('p').forEach(function(pTag) {
+            //    pTag.addEventListener('click', function(){
+            //        pTag.style.color = 'red';
+            //    })
+            // });
+            
+        });
+    </script>
+</head>
+<body>
+
+    <p>이제부터 제이쿼리를 다 같이 공부해보죠!!<br>
+
+    마우스로 글씨를 클릭해보세요!!</p>
+    <p>2번째 p태그</p>    
+
+</body>
+</html>
