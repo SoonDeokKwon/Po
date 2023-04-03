@@ -20,8 +20,11 @@ import co.prod.controller.ChartControl;
 import co.prod.controller.CovidForm;
 import co.prod.controller.MapForm;
 import co.prod.controller.MemberAddAjax;
+import co.prod.controller.MemberAddJquery;
+import co.prod.controller.MemberJquery;
 import co.prod.controller.MemberListAjax;
 import co.prod.controller.MemberListControl;
+import co.prod.controller.MemberListJquery;
 import co.prod.controller.MemberRemoveAjax;
 import co.prod.controller.MembersControl;
 import co.prod.controller.ProductInfoControl;
@@ -80,6 +83,14 @@ public class FrontController extends HttpServlet{
 		map.put("/calendarInsertAjax.do", new CalendarInsertAjax());
 		// schedule 삭제
 		map.put("/calendarDeleteAjax.do", new CalendarDeleteAjax());
+		
+		// jquery용 ajax.
+		map.put("/memberJqauery.do", new MemberJquery());
+		// 목록을 가지고 오도록. memberListJquery.do
+		map.put("/memberListJquery.do", new MemberListJquery());
+		// 회원 목록 등록(jquery)
+		map.put("/memberAddJquery.do", new MemberAddJquery());
+		
 		
 	}
 	@Override

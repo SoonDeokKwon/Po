@@ -3,6 +3,7 @@ package co.prod.service;
 import java.util.List;
 
 import co.prod.vo.MemberVO;
+import co.prod.vo.MembersVO;
 
 public interface MemberService {
 	// 회원목록.
@@ -22,4 +23,13 @@ public interface MemberService {
 	
 	// id/pw 로그인 처리.
 	public MemberVO login(MemberVO vo);
+	
+	
+	// 회원 목록(Jquery)
+	public List<MembersVO> memberListJquery();
+	// 회원 등록(Jquery)
+	public boolean memberAddJquery(MembersVO vo);
+	// 회원 삭제(Jquery)
+	
+	
 }	

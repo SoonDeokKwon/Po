@@ -22,4 +22,20 @@
   	values(#{id}, #{name}, #{passwd}, #{mail}, #{auth})
   </insert>
   
+  <select id="memberListJquery" parameterType="co.prod.vo.MembersVO">
+  	select * from members
+  </select>
+  
+  <insert id="memberAddJquery" parameterType="co.prod.vo.MembersVO">
+  	insert into members values(#{memberId}, #{memberName}, #{memberTel}, #{memberAddr}, #{memberPw})
+  </insert>
+  
+  <update id="deleteMembers" parameterType="co.prod.vo.MembersVO">
+  	delete from members
+  	<foreach collection="list" item="item" open="where member_id in (" close=")" separator=",">
+  		#{item.memberId}
+  	</foreach>
+  </update>
+  
+  
 </mapper>

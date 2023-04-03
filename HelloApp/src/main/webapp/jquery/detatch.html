@@ -5,6 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./jquery-3.6.4.min.js"></script>
+    
+    <script>
+		$(document).ready(function() {
+			// 왼쪽 -> 오른쪽
+			$('button:eq(0)').on('click', function() {
+				$('select[name="right"]').append($('select[name="left">option:selected'));
+			})
+			
+			// 오른쪽 -> 왼쪽
+			$('button:eq(1)').on('click', function() {
+				$('select[name="left"]').append($('select[name="right">option:selected'));
+			});
+		})
+    </script>
+    
 </head>
 <body>
     
@@ -27,11 +43,6 @@
         <option value="">item10</option>
     </select>
 
-
-
-    <script>
-
-    </script>
 
 </body>
 </html>

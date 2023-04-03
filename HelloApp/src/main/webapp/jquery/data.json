@@ -1,0 +1,25 @@
+[{
+    "memberId": "user01",
+    "memberName": "사용자1",
+    "memberAddr": "대구시 100",
+    "memberTel": "010-1111-1111",
+    "memberPw": "1111"
+  }, {
+    "memberId": "user02",
+    "memberName": "사용자2",
+    "memberAddr": "대구시 200",
+    "memberTel": "010-2222-2222",
+    "memberPw": "1111"
+  }, {
+    "memberId": "user03",
+    "memberName": "사용자3",
+    "memberAddr": "대구시 300",
+    "memberTel": "010-3333-3333",
+    "memberPw": "1111"
+  }, {
+    "memberId": "user04",
+    "memberName": "사용자4",
+    "memberAddr": "대구시 400",
+    "memberTel": "010-4444-4444",
+    "memberPw": "1111"
+  }]
