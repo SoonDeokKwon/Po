@@ -2,6 +2,7 @@ package co.prod.service;
 
 import java.util.List;
 
+import co.prod.vo.EmpVO;
 import co.prod.vo.MemberVO;
 import co.prod.vo.MembersVO;
 
@@ -29,7 +30,16 @@ public interface MemberService {
 	public List<MembersVO> memberListJquery();
 	// 회원 등록(Jquery)
 	public boolean memberAddJquery(MembersVO vo);
-	// 회원 삭제(Jquery)
+	// 회원 다건 삭제.
+	public boolean removeMembers(String[] users);
+	
+	
+	// 사원 목록.
+	public List<EmpVO> employeeList();
+	// 사원 등록.
+	public boolean employeeAdd(EmpVO vo);
+	// 삭제.
+	public boolean deleteEmp(int empId);
 	
 	
 }	

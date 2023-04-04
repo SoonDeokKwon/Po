@@ -18,6 +18,10 @@ import co.prod.controller.CalendarInsertAjax;
 import co.prod.controller.ChartAjax;
 import co.prod.controller.ChartControl;
 import co.prod.controller.CovidForm;
+import co.prod.controller.DataTableAddAjax;
+import co.prod.controller.DataTableAjax;
+import co.prod.controller.DataTableForm;
+import co.prod.controller.DataTableRemoveAjax;
 import co.prod.controller.MapForm;
 import co.prod.controller.MemberAddAjax;
 import co.prod.controller.MemberAddJquery;
@@ -26,6 +30,7 @@ import co.prod.controller.MemberListAjax;
 import co.prod.controller.MemberListControl;
 import co.prod.controller.MemberListJquery;
 import co.prod.controller.MemberRemoveAjax;
+import co.prod.controller.MemberRemoveJquery;
 import co.prod.controller.MembersControl;
 import co.prod.controller.ProductInfoControl;
 import co.prod.controller.ProductListControl;
@@ -90,7 +95,17 @@ public class FrontController extends HttpServlet{
 		map.put("/memberListJquery.do", new MemberListJquery());
 		// 회원 목록 등록(jquery)
 		map.put("/memberAddJquery.do", new MemberAddJquery());
+		// 회원 다건 삭제(Jquery).
+		map.put("/memberRemoveJquery.do", new MemberRemoveJquery());
 		
+		// datatable 활용.
+		// 사원 목록.
+		map.put("/dataTabelForm.do", new DataTableForm());
+		map.put("/dataTableAjax.do", new DataTableAjax());
+		// 사원 등록.
+		map.put("/dataTableAdd.do", new DataTableAddAjax());
+		// 삭제.
+		map.put("/dataTableRemove.do", new DataTableRemoveAjax());
 		
 	}
 	@Override

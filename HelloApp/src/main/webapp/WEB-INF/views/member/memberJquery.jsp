@@ -30,7 +30,7 @@
                         console.log(idx, member);
                         $('#list').append(
                             // tr>rd*4 생성.
-                            $('<tr />').append($('<td />').text(member.memberId),
+                            $('<tr id=' + member.memberId + ' />').append($('<td />').text(member.memberId),
                                 $('<td />').text(member.memberName),
                                 $('<td />').text(member.memberPw),
                                 $('<td />').text(member.memberAddr),
@@ -70,15 +70,15 @@
     			    	if (result.retCode =='Success') {
     			    		// 성공.
     			    		alert("성공!!!");
-    		                $('#list').append( $('<tr />').append($('<td />').text($('#id').val()),
-    		                            			   			  $('<td />').text($('#name').val()),
-    		                            		  	 			  $('<td />').text($('#passwd').val()),
-    		                            			 			  $('<td />').text($('#addr').val()),
-    		                            			 			  $('<td />').text($('#tel').val()),
-    		                            	   		 			  $('<td />').append($('<button />').text('삭제').on('click', rowDeleteFnc)),
-    		                           				 			  $('<td />').append($('<input type="checkbox" />'))
-    		                        							 )
-    		                    			);    			    		
+    		                $('#list').append( $('<tr id=' + idVal + ' />').append($('<td />').text($('#id').val()),
+    		                            			   			  							 $('<td />').text($('#name').val()),
+    		                            		  	 			 							 $('<td />').text($('#passwd').val()),
+    		                            			 			 							 $('<td />').text($('#addr').val()),
+    		                            			 			 							 $('<td />').text($('#tel').val()),
+    		                            	   		 			 							 $('<td />').append($('<button />').text('삭제').on('click', rowDeleteFnc)),
+    		                           				 			 							 $('<td />').append($('<input type="checkbox" />'))
+    		                        														 )
+    		                    													);    			    		
     			    	} else if(result.retCode =='Fail') {
     			    		// 처리중 에러.
     			    		alert("실패!!");
@@ -107,8 +107,33 @@
             // 선택삭제 이벤트 핸들러.
             $('#delSelected').on('click', function(e) {
                 e.preventDefault(); // 전송기능 차단.
-
-                $('#list input:checked').closest('tr').remove();
+				
+                let memberIdAray='';		// memberId=user01&memberId=user02
+                //$('#list input:checked').closest('tr').remove();
+                $('#list input:checked').each(function (idx, item) {
+               	 console.log($(item).parent().parent().attr('id'))
+               	 //memberIdAray.push({'memberId': $(item).parent().parent().attr('id')})
+               	 memberIdAray += '&memberId=' + $(item).parent().parent().attr('id');
+                  //$(item).closest('tr').remove();
+                })
+                console.log(memberIdAray);
+                
+                // ajax호출.
+                $.ajax({
+               	 url: 'memberRemoveJquery.do', //호출할 컨트롤
+               	 method:'post',
+               	 data: memberIdAray.substring(1), // memberId=user01&memberId=user02
+               	 success: function (result) {
+               		 if(result.retCode == 'Success'){
+               		 $('#list input:checked').closest('tr').remove();
+               		 }else{
+               			 alert('error!!');
+               		 }
+               	 },
+               	 error: function (reject) {
+               		 console.log(reject);
+               	 }
+                })                
 
             })
 
